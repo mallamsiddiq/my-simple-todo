@@ -1,0 +1,22 @@
+{% include 'base/header.html' %}
+<a class='btn btn-success add-button' href="{% url 'todos:add' %}">
+            <i class="fa fa-plus" aria-hidden="true" style="font-size: 3.5em"></i>
+        </a>
+<ul class='list-group'>
+  {% for todo in todos %}
+  <a href="{% url 'todos:detail' todo.id %}">
+  <li class='list-group-item'>
+    <div class="row">
+      <div class="col-sm">
+        {{todo.title|upper}}
+      </div>
+      <div class="col-sm">
+        {{todo.execution_date}}
+      </div>
+    </div>
+  </li>
+  </a>
+  {% endfor %}
+</ul>
+
+{% include 'base/footer.html' %}
